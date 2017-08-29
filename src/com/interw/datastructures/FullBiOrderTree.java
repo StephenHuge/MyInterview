@@ -46,12 +46,15 @@ public class FullBiOrderTree {
 		int min = arr[0];
 		int max = arr[arr.length - 1]; 
 		
-		if(depth >= 32 || max > Math.pow(2, depth) - 1)	//最大值比depth深度的树最大值大，输入有误
+		//深度超过int值最大值或者最大值比depth深度的树最大值大，输入有误
+		if(depth >= 32 || max > Math.pow(2, depth) - 1) {	
+			s.close();
 			throw new Exception("非法的输入") ;
+		}	
 		
-		int left = 1;
-		int right = (int) (Math.pow(2, depth) - 1);
-		int mid = (left + right) / 2;
+		int left = 1;	//整棵树的最小的值
+		int right = (int) (Math.pow(2, depth) - 1);	//整棵树中最大的值
+		int mid = (left + right) / 2;	//整棵树的根节点值
 		
 		while(true) {
 			if(max < mid) {		//如果最大值小于中点，则搜索中点的左子树
@@ -66,5 +69,7 @@ public class FullBiOrderTree {
 			}
 		}
 		System.out.println(mid);
+		
+		s.close();
 	}
 }
