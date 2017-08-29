@@ -26,6 +26,7 @@ import java.util.Scanner;
  * 如果输入的数中最大值比当前中点小，那么在当前中点的左子树中查找；
  * 如果输入的数中最小值比当前中点大，那么在当前中点的右子树中查找；
  * 
+ * 特殊情况： 5 24 28 30 如果中点即为最大值或者最小值，不对其进行判断则会死循环出错。
  * 
  * @Time 08/29
  */
@@ -47,7 +48,7 @@ public class FullBiOrderTree {
 		int max = arr[arr.length - 1]; 
 		
 		//深度超过int值最大值或者最大值比depth深度的树最大值大，输入有误
-		if(depth >= 32 || max > Math.pow(2, depth) - 1) {	
+		if(depth >= 32 || max > Math.pow(2, depth) - 1) {
 			s.close();
 			throw new Exception("非法的输入") ;
 		}	
@@ -64,7 +65,8 @@ public class FullBiOrderTree {
 				left = mid + 1;
 				mid = (left + right) / 2;
 			}
-			if(mid > min && mid < max) {	//中点既大于最小值，又小于最大值
+			//中点既大于最小值，又小于最大值 或者最大值或最小值为中点
+			if(mid > min && mid < max || mid == max || mid == min) {	
 				break;
 			}
 		}
