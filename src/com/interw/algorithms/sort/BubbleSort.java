@@ -22,11 +22,14 @@ public class BubbleSort implements Sorts{
 		return sorted;
 	}
 	
-//	public static void main(String[] args) {
-//		int[] arr = SortTool.getRandomArr(50000, 50000);
-//		
-//		arr = new BubbleSort().sort(arr);
-//		
-//		SortTool.print(arr);
-//	}
+	public static void main(String[] args) {
+		int[] arr = SortTool.getRandomArr(50000, 50000);
+		
+		long startTime=System.nanoTime();   //程序开始时间  
+		arr = new BubbleSort().sort(arr);
+		long endTime=System.nanoTime(); //结束时间  
+
+		SortTool.print(arr);
+		System.out.println("程序运行时间为 "+(double)((endTime-startTime)) / 1000000000 +"s"); 
+	}
 }
