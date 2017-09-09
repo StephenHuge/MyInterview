@@ -1,5 +1,8 @@
 package com.interw.algorithms.sort;
 
+/**
+ * ¿ìËÙÅÅĞò¡£
+ */
 public class QuickSort implements Sorts{
 
 	@Override
