@@ -11,7 +11,7 @@ import java.util.List;
  * @author 40741
  *
  */
-public class Main {
+public class ZTEMain {
 	public static void main(String[] args) throws Exception {
 		
 		
