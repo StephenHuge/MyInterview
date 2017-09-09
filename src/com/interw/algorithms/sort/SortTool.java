@@ -1,6 +1,5 @@
 package com.interw.algorithms.sort;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -22,15 +21,13 @@ public class SortTool {
 	 *	生成固定最大值，固定长度的随机数组
 	 */
 	public static int[] getRandomArr(int max, int len) {
-    	if(len <= 0 || len >= 65535) return null;	//长度太大
+    	if(len <= 0 || len >= 65535) 	return null;
+		System.out.println("生成的数组长度为： " + len + ", 数组最大值为： " + max);
 		
 		int[] arr = new int[len];
-		
     	for (int i = 0; i < len; i++) {
     		Random random = new Random();
-    		
     		int s = random.nextInt(max) ;	//生成0到max之间大小的随机数
-    		
     		arr[i] = s;
 		}
 		return arr;
@@ -50,16 +47,5 @@ public class SortTool {
 				System.out.println();	//每10个数换行
 		}
 		System.out.println();
-	}
-	
-	/**
-	 * 获取数组中间值
-	 */
-	@Deprecated
-	public static int getMiddle(int[] arr) {
-		if(arr == null || arr.length == 0 )	return -1;
-		
-		Arrays.sort(arr);
-		return arr[arr.length / 2];
 	}
 }
