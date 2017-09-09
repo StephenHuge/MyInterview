@@ -2,6 +2,7 @@ package com.interw.algorithms.sort;
 
 /**
  * 冒泡排序。
+ * 基本思想是：两两比较相邻记录的关键字，如果反序则交换，直到没有反序的记录为止。
  */
 public class BubbleSort implements Sorts{
 
