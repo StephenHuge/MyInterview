@@ -4,7 +4,7 @@ package com.interw.algorithms.sort;
  * 动态生成排序实例的工厂
  */
 public class SortFactory {
-	public static Sorts getClass(Class<?> clazz) {
+	public static Sorts getSort(Class<?> clazz) {
 		
 		Sorts sort = null;
 		

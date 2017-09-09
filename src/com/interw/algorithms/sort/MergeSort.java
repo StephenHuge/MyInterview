@@ -72,7 +72,6 @@ public class MergeSort implements Sorts {
 		int[] former = SortTool.getRandomArr(50, 50);
 		int[] latter = new int[former.length];
 
-		int mid = (0 + former.length - 1) / 2;
 		SortTool.print(former);
 //		int[] ans = new MergeSort().mergeArray(former, 0 ,mid, former.length - 1, latter);
 		new MergeSort().mergeSort(former, 0, former.length - 1, latter);
