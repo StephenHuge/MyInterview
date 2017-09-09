@@ -51,6 +51,7 @@ public class SortTool {
 			if((i + 1) % 10 == 0)
 				System.out.println();	//每10个数换行
 		}
+		System.out.println();
 	}
 	
 	public static void main(String[] args) {
