@@ -9,12 +9,10 @@ public class QuickSort implements Sorts{
 	}
 
 	private int[] quickSort(int[] arr, int left, int right) {
-//		int left = 0, right = arr.length - 1;
-		
 		if(left < right) {
 			int point = quickAdjust(arr, left, right);
-			quickSort(arr, left, point);
-			quickSort(arr, point + 1, right);
+			quickSort(arr, left, point);	//左边递归排序
+			quickSort(arr, point + 1, right);	//右边递归排序
 		}
 		return arr;
 	}
@@ -22,7 +20,7 @@ public class QuickSort implements Sorts{
 	private int quickAdjust(int[] arr, int left, int right) {
 		int pivot = arr[left];
 		
-//		int[] pivots = {arr[left], arr[right], arr[(left + right) / 2]};
+//		int[] pivots = {arr[left], arr[right], arr[(left + right) / 2]};	//确定更好的pivot，减少排序次数
 //		int pivot = SortTool.getMiddle(pivots);
 
 		while(left < right) {
@@ -38,8 +36,14 @@ public class QuickSort implements Sorts{
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {6, 2, 3, 7, 4, 8, 9};
+//		int[] arr = {6, 2, 3, 7, 4, 8, 9};
+		int[] arr = SortTool.getRandomArr(50000, 50000);
+		
+		long startTime=System.nanoTime();   //程序开始时间  
 		new QuickSort().sort(arr);
+		long endTime=System.nanoTime(); //结束时间  
+
 		SortTool.print(arr);
+		System.out.println("程序运行时间为 "+(double)((endTime-startTime)) / 1000000000 +"s");
 	}
 }
