@@ -9,7 +9,7 @@ public class SortFactory {
 		Sorts sort = null;
 		
 		try {
-			sort = (Sorts) Class.forName(clazz.getName()).newInstance();
+			sort = (Sorts) Class.forName(clazz.getName()).newInstance();	//通过类名反射生成排序的实例
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}

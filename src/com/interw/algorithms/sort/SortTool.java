@@ -27,7 +27,6 @@ public class SortTool {
 		int[] arr = new int[len];
 		
     	for (int i = 0; i < len; i++) {
-			
     		Random random = new Random();
     		
     		int s = random.nextInt(max) ;	//生成0到max之间大小的随机数
@@ -45,7 +44,6 @@ public class SortTool {
 		if(arr == null || arr.length == 0 )	return;
 		
 		int len = arr.length;
-		
 		for(int i = 0; i < len; i++) {
 			System.out.print(arr[i] + " \t");
 			if((i + 1) % 10 == 0)
@@ -54,22 +52,14 @@ public class SortTool {
 		System.out.println();
 	}
 	
-	public static void main(String[] args) {
-		int[] arr = getRandomArr(100, 100);
-		
-		print(arr);
-		System.out.println(getMiddle(arr));
-	}
-	
 	/**
 	 * 获取数组中间值
 	 */
+	@Deprecated
 	public static int getMiddle(int[] arr) {
 		if(arr == null || arr.length == 0 )	return -1;
 		
 		Arrays.sort(arr);
-		
 		return arr[arr.length / 2];
-		
 	}
 }
