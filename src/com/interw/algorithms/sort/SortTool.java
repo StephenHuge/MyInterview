@@ -1,5 +1,6 @@
 package com.interw.algorithms.sort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -56,6 +57,18 @@ public class SortTool {
 		int[] arr = getRandomArr(100, 100);
 		
 		print(arr);
+		System.out.println(getMiddle(arr));
 	}
 	
+	/**
+	 * 获取数组中间值
+	 */
+	public static int getMiddle(int[] arr) {
+		if(arr == null || arr.length == 0 )	return -1;
+		
+		Arrays.sort(arr);
+		
+		return arr[arr.length / 2];
+		
+	}
 }
