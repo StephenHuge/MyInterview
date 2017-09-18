@@ -1,7 +1,6 @@
 package com.interw.datastructures;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,6 +24,8 @@ public class QunarMain {
 		
 		System.out.println(tianJi);
 		System.out.println(kingQi);
+		
+		s.close();
 	}
 }
 

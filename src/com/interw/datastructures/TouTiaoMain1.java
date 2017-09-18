@@ -55,6 +55,8 @@ public class TouTiaoMain1 {
 				count++;
 		}
 		System.out.println(count);
+		
+		in.close();
 	}
 }
 
