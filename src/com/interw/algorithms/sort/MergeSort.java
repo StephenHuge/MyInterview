@@ -15,12 +15,12 @@ public class MergeSort implements Sorts {
 		return sorted;
 	}
 
-	private void mergeSort(int[] arr, int left, int right, int[] sorted) {
+	private void mergeSort(int[] unSort, int left, int right, int[] sorted) {
 		if(left < right) {
 			int mid = (left + right) / 2;
-			mergeSort(arr, left, mid, sorted);		//左边有序
-			mergeSort(arr, mid + 1, right, sorted); //右边有序
-			mergeArray(arr, left, mid, right, sorted);	//归并
+			mergeSort(unSort, left, mid, sorted);		//左边有序
+			mergeSort(unSort, mid + 1, right, sorted); //右边有序
+			mergeArray(unSort, left, mid, right, sorted);	//归并
 		}
 	}
 
@@ -28,7 +28,7 @@ public class MergeSort implements Sorts {
 	 * 将两个有序数组归并
 	 */
 	private void mergeArray(int[] unSort, int left, int mid, int right, int[] sorted) {
-		int f = left, m = mid + 1, pivot = 0;	//移动的下标
+		int f = left, m = mid + 1, pivot = 0;	//需要移动的下标
 		
 		while(f < mid + 1 && m < right + 1 ) {	//归并两段数组
 			if(unSort[f] <= unSort[m]) 
@@ -42,7 +42,8 @@ public class MergeSort implements Sorts {
 		while(m < right + 1 )		//前面的一段已经用完了，直接复制后面的一段
 			sorted[pivot++] = unSort[m++];
 		
-		for(f = 0; f < pivot; f++) 	//将已经排好序的数组段复制到原数组里面
+		//将已经排好序的数组段复制到原数组里面，这步是有必要的，是为了直接利用之前已经排好序的数字
+		for(f = 0; f < pivot; f++) 	
 			unSort[left + f] = sorted[f];
 	}
 }	
