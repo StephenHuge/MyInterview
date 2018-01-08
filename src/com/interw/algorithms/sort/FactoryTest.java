@@ -12,22 +12,34 @@ public class FactoryTest {
 		
 		int len = 10000;
 		
-		int[] unSort = SortTool.getRandomArr(len, len);
+		//生成数组
+		int[] unSort1 = SortTool.getRandomArr(len, len);
 		
-		Sorts bubble = SortFactory.getSort(BubbleSort.class);	//获取原始的排序类
+		int[] unSortT = unSort1.clone();
+		int[] unSort2 = unSort1.clone();
+		int[] unSort3 = unSort1.clone();
+		
+		
+		//获取原始的排序类
+		Sorts bubble = SortFactory.getSort(BubbleSort.class);
 		Sorts quick = SortFactory.getSort(QuickSort.class);
 		Sorts merge = SortFactory.getSort(MergeSort.class);
 		
-		Sorts bProxy = (Sorts) new SortProxy(bubble).getProxy();//生成动态代理的排序类
-		Sorts qProxy = (Sorts) new SortProxy(quick).getProxy();//生成动态代理的排序类
-		Sorts mProxy = (Sorts) new SortProxy(merge).getProxy();//生成动态代理的排序类
+		//生成动态代理的排序类
+		Sorts bProxy = (Sorts) new SortProxy(bubble).getProxy();
+		Sorts qProxy = (Sorts) new SortProxy(quick).getProxy();
+		Sorts mProxy = (Sorts) new SortProxy(merge).getProxy();
 		
-		bProxy.sort(unSort);
-		qProxy.sort(unSort);
-		mProxy.sort(unSort);
+		//排序
+		bProxy.sort(unSort1);
+		bProxy.sort(unSortT);
+		qProxy.sort(unSort2);
+		mProxy.sort(unSort3);
 		
 		
-		/*为了对比不删除以下代码                                                 */
+		
+		/*为了对比使用及不使用代理模式不删除以下代码 */
+		
 //		long startTimeb = System.nanoTime();   //程序开始时间  
 //		bubble.sort(unSort);
 //		long endTimeb = System.nanoTime(); //结束时间

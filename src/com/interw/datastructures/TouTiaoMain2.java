@@ -34,7 +34,7 @@ public class TouTiaoMain2 {
 			}
 			System.out.println(cc[i]);
 		}
-        
+        in.close();
 //        for (int i = 0; i < users.length; i++) {
 //			for (int j = 0; j < users[0].length; j++) {
 //				System.out.print(users[i][j]);

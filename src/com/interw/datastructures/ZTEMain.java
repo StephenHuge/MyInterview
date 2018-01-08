@@ -16,6 +16,7 @@ public class ZTEMain {
 		
 		
 		List<Double> doubles = new ArrayList<>();
+		@SuppressWarnings("unused")
 		int num = 0;
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
